@@ -62,6 +62,9 @@ endif
 ifeq ($(BOARD_HAVE_BLUETOOTH),true)
   LOCAL_CFLAGS += -DWITH_A2DP
 endif
+ifeq ($(BOARD_HAVE_BLUETOOTH_BLUEZ),true)
+  LOCAL_CFLAGS += -DWITH_A2DP
+endif
 
 LOCAL_STATIC_LIBRARIES := libmedia_helper
 LOCAL_MODULE := libaudiopolicy_legacy2
@@ -97,6 +100,9 @@ LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
 LOCAL_MODULE_TAGS := optional
 
 ifeq ($(BOARD_HAVE_BLUETOOTH),true)
+  LOCAL_CFLAGS += -DWITH_A2DP
+endif
+ifeq ($(BOARD_HAVE_BLUETOOTH_BLUEZ),true)
   LOCAL_CFLAGS += -DWITH_A2DP
 endif
 
